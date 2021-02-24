@@ -1,0 +1,64 @@
+html, body 
+{
+    margin: 0; padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header.top-bar
+{
+    background-color: rgb(27, 27, 27);
+    color: white;
+    padding: 13px 10px;
+}
+
+header.top-bar .title
+{
+    font-size: 35px;
+}
+
+.container
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 5px;
+}
+
+.col-2
+{
+    width: 50%;
+    box-sizing: border-box;
+    padding: 3px 20px;
+    text-align: justify;
+}
+
+.right-fixed
+{
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.canvas-container
+{
+    position: fixed;
+    top:0;
+    right: 0;
+    left: 0;
+    bottom:0;
+    z-index: 1;
+
+}
+
+.canvas-container #flashlight-cnvs
+{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(26, 26, 26, 0.24);
+}
