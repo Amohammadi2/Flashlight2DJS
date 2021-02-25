@@ -30,6 +30,8 @@ class Flashlight
      * or you can pass an event object to this function by yourself.
      * anyway, it should contain `clientX` and `clientY`
      * @param {MouseEvent} event a mouse event
+     * @example <caption>binding it to window.onmousemove</caption>
+     * window.onmousemove = flashlight_obj.DrawFlashlight;
      */
     DrawFlashlight(event)
     {
@@ -91,7 +93,7 @@ class Flashlight
         ctx.fillStyle = gradient;
 
         ctx.beginPath();
-        ctx.arc(x, y, this.radious, 0, 2 * Math.PI, false);
+        ctx.rect(0, 0, this.canvas.width, this.canvas.height);
         ctx.fill();
     }
 
@@ -106,11 +108,7 @@ class Flashlight
         let data = image_data.data;
         for (let i =0; i<data.length; i+=4)
         {
-            let average = (data[i] + data[i+1] + data[i+2]) / 3;
-            if (average > 50)
-            {
-                data[i+3] = 255 - average;
-            }    
+            data[i+3] = 100;
         }
         ctx.putImageData(image_data, 0, 0);
     }

@@ -37,7 +37,7 @@ function toggleLoginForm(on)
         radious: 300,
         cover_color: "#494949",
         inner_light_color: "#FFFFFF",
-        outer_light_color: "#494949"
+        outer_light_color: "black"
     });
     
     window.onmousemove = flashlight.DrawFlashlight.bind(flashlight);
