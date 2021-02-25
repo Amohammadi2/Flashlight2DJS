@@ -1,4 +1,8 @@
 const CANVAS = document.getElementById("flashlight-cnvs")
+const LOGIN_FORM_CONTAINER = document.getElementById("login-form-container");
+const OPEN_LOGIN_BTN = document.getElementById("open-login-btn");
+const LOGIN_BTN = document.getElementById("login-btn");
+const CANCEL_BTN = document.getElementById("cancel-btn");
 
 /**
  * resizes the canvas to fill whole the screen every time
@@ -9,6 +13,15 @@ function resizeCanvas()
 {
     CANVAS.width = window.innerWidth;
     CANVAS.height = window.innerHeight;
+}
+
+function toggleLoginForm(on)
+{
+    let ptrevnt = on? "all" : "none";
+    let opcty = on? "1" : "0";
+
+    LOGIN_FORM_CONTAINER.style.opacity = opcty;
+    LOGIN_FORM_CONTAINER.style.pointerEvents = ptrevnt;
 }
 
 (function(){
@@ -22,7 +35,7 @@ function resizeCanvas()
     let flashlight = new Flashlight({
         canvas: CANVAS,
         radious: 300,
-        cover_color: "black",
+        cover_color: "#494949",
         inner_light_color: "#FFFFFF",
         outer_light_color: "#494949"
     });
@@ -32,4 +45,8 @@ function resizeCanvas()
     // resize the canvas dynamically
     resizeCanvas();
     window.onresize = resizeCanvas;
+
+    OPEN_LOGIN_BTN.onclick = () => toggleLoginForm(true);
+    CANCEL_BTN.onclick = () => toggleLoginForm(false);
+    LOGIN_BTN.onclick = () => toggleLoginForm(false);
 }());

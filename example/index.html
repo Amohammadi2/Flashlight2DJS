@@ -6,21 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flashlight demonstration</title>
 
-    <link rel="stylesheet" href="../dist/css/content/content-style.css">
-    <link rel="stylesheet" href="../dist/css/flashlight/flashlight-style.css">
+    <link rel="stylesheet" href="css/content-style.css">
+    <link rel="stylesheet" href="css/flashlight-style.css">
 
     <script defer src="../dist/js/flashlight.js"></script>
     <script defer src="js/content_generator.js"></script>
     <script defer src="js/app.js"></script>
 </head>
 <body>
+    <div class="modal-container" id="login-form-container">
+        <div class="modal">
+            <div class="m-header">
+                <h3>Please login</h3>
+            </div>
+            <div class="m-body">
+                <input type="text" name="username" id="l-username" placeholder="username">
+                <input type="password" name="password" id="l-password" placeholder="password">
+            </div>
+            <div class="m-footer">
+                <button class="btn btn-primary" id="login-btn">login</button>
+                <button class="btn btn-alert" id="cancel-btn">cancel</button>
+            </div>
+        </div>
+    </div>
     <div class="canvas-container" id="cnvs-container">
         <canvas id="flashlight-cnvs"></canvas>
     </div>
     <header class="top-bar">
         <span class="title" id="page-title">FlashlightJs</span>
         <span class="bar-item">
-            <button class="btn-primary">login</button>
+            <button class="btn btn-primary" id="open-login-btn">login</button>
         </span>
     </header>
     <div class="container">

@@ -1,0 +1,143 @@
+html, body 
+{
+    margin: 0; padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header.top-bar
+{
+    background-color: rgb(27, 27, 27);
+    color: white;
+    padding: 13px 10px;
+}
+
+header.top-bar .title
+{
+    font-size: 35px;
+    line-height: 35px;
+}
+
+.container
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 5px;
+}
+
+.col-2
+{
+    width: 50%;
+    box-sizing: border-box;
+    padding: 3px 20px;
+    text-align: justify;
+}
+
+.bar-item
+{
+    margin-left: 20px;
+    line-height: 35px;
+}
+
+.btn
+{
+    padding: 8px 16px;
+    border: none;
+    transition: all .09s ease-out;
+    cursor: pointer;
+    border: none;
+    outline: none !important;
+    box-sizing: border-box;
+}
+
+.btn-primary
+{
+    background-color: rgb(23, 112, 196);
+    color: white;
+}
+
+
+.btn-primary:hover
+{
+    background-color: rgb(10, 72, 129)
+}
+
+.btn-alert
+{
+    background-color: rgb(202, 41, 36);
+    color: white;
+}
+
+.btn-alert:hover
+{
+    background-color: rgb(129, 18, 10);
+}
+
+.modal-container
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(27, 27, 27, 0.699);
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .09s ease-in-out;
+}
+
+.modal
+{
+    width: 40%;
+    min-height: 250px;
+    margin-top: 20vh;
+    margin-left: 30%;
+    margin-right: 30%;
+    background-color: white;
+    position: relative;
+}
+
+.modal .m-header
+{
+    background-color: rgb(27, 27, 27);
+    display:flex;
+    color: white;
+    padding: 5px 6px;
+}
+
+.modal .m-header h3
+{
+    padding: 0;
+    margin: 0;
+}
+
+.modal .m-footer
+{
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    position: absolute;
+}
+
+.modal .m-footer button
+{
+    margin: 8px 0px;
+    margin-left: 10px;
+}
+
+.modal .m-body
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal .m-body input
+{
+    margin: 6px 8px;
+    display: block;
+    padding: 7px 4px;
+}
