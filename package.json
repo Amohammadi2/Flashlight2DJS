@@ -11,8 +11,5 @@
   },
   "author": "Ashkan Mohammadi",
   "license": "MIT",
-  "dependencies": {
-    "esdoc": "^1.1.0",
-    "esdoc-standard-plugin": "^1.0.0"
-  }
+  "dependencies": {}
 }
