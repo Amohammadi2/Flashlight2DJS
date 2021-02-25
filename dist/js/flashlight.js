@@ -4,6 +4,7 @@ class Flashlight
      * 
      * @param {Object} config configuration for the flashlight
      * @param {HTMLCanvasElement} config.canvas the canvas on which the effect is applied
+     * @param {String} config.cover_color the color of the cover around flashlight
      * @param {Number} config.radious radious of the flashlight
      * @param {String} config.inner_light_color color of inner circle of the flashlight
      * @param {String} config.outer_light_color color of outer circle of the flashlight 
@@ -64,6 +65,7 @@ class Flashlight
     /**
      * draws a cover all over the canvas
      * @param {CanvasRenderingContext2D} ctx
+     * @private
      */
     _DrawCover(ctx)
     {
@@ -79,6 +81,7 @@ class Flashlight
      * @param {CanvasRenderingContext2D} ctx
      * @param {Number} x x coordinate of center of the cirlce
      * @param {Number} y y coordinate of center of the cirlce
+     * @private
      */
     _DrawFlashlightCircle(ctx, x, y)
     {
@@ -95,6 +98,7 @@ class Flashlight
     /**
      * makes the circle pixels transparent by manipulating each pixel directly
      * @param {CanvasRenderingContext2D} ctx
+     * @private
      */
     _MakeFlashlightCircleTransparent(ctx)
     {
