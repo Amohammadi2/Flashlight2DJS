@@ -1,0 +1,7 @@
+{
+    "source": "./dist/js",
+    "distination": "./docs",
+    "plugins": [
+        {"name": "esdoc-standard-plugin"}
+    ]
+}

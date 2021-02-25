@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flashlight demonstration</title>
 
-    <link rel="stylesheet" href="css/content/content-style.css">
-    <link rel="stylesheet" href="css/flashlight/flashlight-style.css">
+    <link rel="stylesheet" href="../dist/css/content/content-style.css">
+    <link rel="stylesheet" href="../dist/css/flashlight/flashlight-style.css">
 
-    <script defer src="js/flashlight.js"></script>
+    <script defer src="../dist/js/flashlight.js"></script>
+    <script defer src="js/content_generator.js"></script>
+    <script defer src="js/app.js"></script>
 </head>
 <body>
     <div class="canvas-container" id="cnvs-container">
@@ -17,6 +19,9 @@
     </div>
     <header class="top-bar">
         <span class="title" id="page-title">FlashlightJs</span>
+        <span class="bar-item">
+            <button class="btn-primary">login</button>
+        </span>
     </header>
     <div class="container">
         <div class="col-2" data-random-content="true"></div>
