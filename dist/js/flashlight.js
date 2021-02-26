@@ -4,21 +4,21 @@ class Flashlight
      * 
      * @param {Object} config configuration for the flashlight
      * @param {HTMLCanvasElement} config.canvas the canvas on which the effect is applied
-     * @param {String} config.cover_color the color of the cover around flashlight
      * @param {Number} config.radious radious of the flashlight
+     * @param {Number} config.opacity opacity of the effect. ranges from 0 to 255
      * @param {String} config.inner_light_color color of inner circle of the flashlight
      * @param {String} config.outer_light_color color of outer circle of the flashlight 
      */
     constructor(
         {canvas,
         radious,
-        cover_color,
+        opacity,
         inner_light_color,
         outer_light_color} = config)
     {
         this.canvas = canvas;
         this.radious = radious;
-        this.cover_color = cover_color;
+        this.opacity = opacity;
         this.inner_light_color = inner_light_color;
         this.outer_light_color = outer_light_color;
     }
@@ -38,7 +38,6 @@ class Flashlight
         let {x, y} = this.GetMousePosition(event);
         const ctx = this.canvas.getContext('2d');
 
-        this._DrawCover(ctx);
         this._DrawFlashlightCircle(ctx, x, y);
         this._MakeFlashlightCircleTransparent(ctx);
     }
@@ -62,20 +61,6 @@ class Flashlight
     {
         let {clientX: x, clientY: y} = mouse_event;
         return {x, y};
-    }
-
-    /**
-     * draws a cover all over the canvas
-     * @param {CanvasRenderingContext2D} ctx
-     * @private
-     */
-    _DrawCover(ctx)
-    {
-        ctx.beginPath();
-        ctx.clearRect(0,0, this.canvas.width, this.canvas.height);
-        ctx.fillStyle = this.cover_color;
-        ctx.rect(0, 0, this.canvas.width, this.canvas.height);
-        ctx.fill();
     }
 
     /**
