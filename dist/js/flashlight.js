@@ -9,12 +9,13 @@ class Flashlight
      * @param {String} config.inner_light_color color of inner circle of the flashlight
      * @param {String} config.outer_light_color color of outer circle of the flashlight 
      */
-    constructor(
-        {canvas,
-        radious,
-        opacity,
-        inner_light_color,
-        outer_light_color} = config)
+    constructor({
+        canvas,
+        radious = 250,
+        opacity = 100,
+        inner_light_color = "white",
+        outer_light_color = "black"
+    } = config)
     {
         this.canvas = canvas;
         this.radious = radious;
@@ -93,7 +94,7 @@ class Flashlight
         let data = image_data.data;
         for (let i =0; i<data.length; i+=4)
         {
-            data[i+3] = 100;
+            data[i+3] = this.opacity;
         }
         ctx.putImageData(image_data, 0, 0);
     }
