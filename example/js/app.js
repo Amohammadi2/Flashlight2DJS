@@ -35,7 +35,6 @@ function toggleLoginForm(on)
     let flashlight = new Flashlight({
         canvas: CANVAS,
         radious: 300,
-        cover_color: "#494949",
         inner_light_color: "#FFFFFF",
         outer_light_color: "black"
     });
