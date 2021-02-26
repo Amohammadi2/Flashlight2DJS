@@ -43,29 +43,30 @@ After setting up the canvas and ensuring that is in the right position, it is th
 lighting effect on the canvas.
 
 ```javascript
-(function(){
-  // get a refrence to the canvas
-  const cnvs = document.getElementById("cnvs");
-  
-  // instantiate flashlight instance
-  let flashlight = new Flashlight({
-    canvas: cnvs,
-    radious: 250,
-    inner_light_color: "#FFFFFF",
-    outer_light_color: "black"
-  });
-  
-  // use `bind` method otherwise when the function is called
-  // `this` keyword will refrence `window` object instead of
-  // `flashlight` object
-  window.onmousemove = flashlight.DrawFlashlight.bind(flashlight);
-  // resize the canvas dynamically
-  window.onresize = function resizeCanvas(){
+// get a refrence to the canvas
+const cnvs = document.getElementById("cnvs");
+
+function resizeCanvas()
+{
     cnvs.width = window.innerWidth;
     cnvs.height = window.innerHeight;
-  };
-  // initial resize
-  resizeCanvas();
+}
+
+(function(){ 
+    // instantiate flashlight instance
+    let flashlight = new Flashlight({
+        canvas: cnvs,
+        radious: 250,
+        inner_light_color: "#FFFFFF",
+        outer_light_color: "black"
+    });
+    
+    // use `bind` method otherwise when the function is called
+    // `this` keyword will refrence `window` object instead of
+    // `flashlight` object
+    window.onmousemove = flashlight.DrawFlashlight.bind(flashlight);
+    resizeCanvas();
+    window.onresize = resizeCanvas;
 }());
 ```
 
