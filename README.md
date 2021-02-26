@@ -57,6 +57,7 @@ function resizeCanvas()
     let flashlight = new Flashlight({
         canvas: cnvs,
         radious: 250,
+        opacity: 50,
         inner_light_color: "#FFFFFF",
         outer_light_color: "black"
     });
