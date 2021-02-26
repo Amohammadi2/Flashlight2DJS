@@ -20,7 +20,9 @@ First, let's add a simple canvas with the id of `cnvs`:
 
 Now let's make it fixed on screen by adding `position: fixed` proprty to `cnvs-container` element.
 ```css
-#cnvs-container
+html, body {padding: 0; margin: 0;}
+
+.cnvs-container
 {
     /* to make it fixed on screen */
     position: fixed;
@@ -57,6 +59,13 @@ lighting effect on the canvas.
   // `this` keyword will refrence `window` object instead of
   // `flashlight` object
   window.onmousemove = flashlight.DrawFlashlight.bind(flashlight);
+  // resize the canvas dynamically
+  window.onresize = function resizeCanvas(){
+    cnvs.width = window.innerWidth;
+    cnvs.height = window.innerHeight;
+  };
+  // initial resize
+  resizeCanvas();
 }());
 ```
 
