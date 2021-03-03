@@ -61,6 +61,9 @@ class Flashlight
     GetMousePosition(mouse_event)
     {
         let {clientX: x, clientY: y} = mouse_event;
+        let bounds = mouse_event.currentTarget.getBoundingClientRect();
+        x = x - bounds.left;
+        y = y - bounds.top;
         return {x, y};
     }
 
