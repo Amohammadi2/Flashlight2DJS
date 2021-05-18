@@ -11,17 +11,42 @@ class Flashlight
      */
     constructor({
         canvas,
+        container,
         radious = 250,
         opacity = 100,
         inner_light_color = "white",
-        outer_light_color = "black"
+        outer_light_color = "black",
+        css = {}
     } = config)
     {
+        let css_styles = {
+            position: "fixed",
+            top: "0",
+            right: "0",
+            left: "0",
+            bottom: "0",
+            pointerEvents: "none",
+            ...css
+        };
+
         this.canvas = canvas;
+        this.container = container;
         this.radious = radious;
         this.opacity = opacity;
         this.inner_light_color = inner_light_color;
         this.outer_light_color = outer_light_color;
+        this._apply_css(this.container, css_styles);
+    }
+
+    /**
+     * applies css to the element
+     * @param {HTMLElement} element
+     * @param {Object} css 
+    */
+    _apply_css(element, css)
+    {
+        for (const [key, value] of Object.entries(css))
+            element.style[key] = value;
     }
 
     /**
@@ -39,10 +64,25 @@ class Flashlight
         let {x, y} = this.GetMousePosition(event);
         const ctx = this.canvas.getContext('2d');
 
+        this._resizeCanvas(
+            this.container.offsetWidth,
+            this.container.offsetHeight,
+        );
         this._DrawFlashlightCircle(ctx, x, y);
         this._MakeFlashlightCircleTransparent(ctx);
     }
 
+    /**
+     * resizes the canvas
+     * @param {Number} x width of canvas
+     * @param {Number} y height of canvas
+     * @private 
+    */
+    _resizeCanvas(x, y)
+    {
+        this.canvas.width = x;
+        this.canvas.height = y;
+    }
 
     /**
      * @typedef {Object} MousePositionStruct
@@ -61,7 +101,7 @@ class Flashlight
     GetMousePosition(mouse_event)
     {
         let {clientX: x, clientY: y} = mouse_event;
-        let bounds = mouse_event.currentTarget.getBoundingClientRect();
+        let bounds = this.container.getBoundingClientRect();
         x = x - bounds.left;
         y = y - bounds.top;
         return {x, y};
