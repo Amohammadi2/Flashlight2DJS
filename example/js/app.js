@@ -1,4 +1,5 @@
 const CANVAS = document.getElementById("flashlight-cnvs")
+const CANVAS_CONTAINER = document.getElementById("cnvs-container");
 const LOGIN_FORM_CONTAINER = document.getElementById("login-form-container");
 const OPEN_LOGIN_BTN = document.getElementById("open-login-btn");
 const LOGIN_BTN = document.getElementById("login-btn");
@@ -34,16 +35,16 @@ function toggleLoginForm(on)
     // the radious of the flashlight circle
     let flashlight = new Flashlight({
         canvas: CANVAS,
+        container: CANVAS_CONTAINER,
         radious: 300,
         inner_light_color: "#FFFFFF",
-        outer_light_color: "black"
+        outer_light_color: "black",
+        css: {
+            zIndex: "2"
+        }
     });
     
     window.onmousemove = flashlight.DrawFlashlight.bind(flashlight);
-    
-    // resize the canvas dynamically
-    resizeCanvas();
-    window.onresize = resizeCanvas;
 
     OPEN_LOGIN_BTN.onclick = () => toggleLoginForm(true);
     CANCEL_BTN.onclick = () => toggleLoginForm(false);
