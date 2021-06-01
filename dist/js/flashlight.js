@@ -16,18 +16,25 @@ class Flashlight
         opacity = 100,
         inner_light_color = "white",
         outer_light_color = "black",
-        css = {}
+        css_container = {},
+        css_canvas = {},
     } = config)
     {
-        let css_styles = {
+        let css_styles_container = {
             position: "fixed",
             top: "0",
             right: "0",
             left: "0",
             bottom: "0",
             pointerEvents: "none",
-            ...css
+            ...css_container
         };
+
+        let css_styles_canvas = {
+            pointerEvents: "none",
+            ...css_canvas
+        };
+
 
         this.canvas = canvas;
         this.container = container;
@@ -35,7 +42,8 @@ class Flashlight
         this.opacity = opacity;
         this.inner_light_color = inner_light_color;
         this.outer_light_color = outer_light_color;
-        this._apply_css(this.container, css_styles);
+        this._apply_css(this.container, css_styles_container);
+        this._apply_css(this.canvas, css_styles_canvas);
     }
 
     /**
@@ -100,6 +108,7 @@ class Flashlight
      */
     GetMousePosition(mouse_event)
     {
+        console.log(mouse_event);
         let {clientX: x, clientY: y} = mouse_event;
         let bounds = this.container.getBoundingClientRect();
         x = x - bounds.left;
