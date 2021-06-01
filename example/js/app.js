@@ -5,17 +5,6 @@ const OPEN_LOGIN_BTN = document.getElementById("open-login-btn");
 const LOGIN_BTN = document.getElementById("login-btn");
 const CANCEL_BTN = document.getElementById("cancel-btn");
 
-/**
- * resizes the canvas to fill whole the screen every time
- * the browser window resizes. 
- * @returns {void}
- */
-function resizeCanvas()
-{
-    CANVAS.width = window.innerWidth;
-    CANVAS.height = window.innerHeight;
-}
-
 function toggleLoginForm(on)
 {
     let ptrevnt = on? "all" : "none";
@@ -31,20 +20,27 @@ function toggleLoginForm(on)
     let post_random_generator = new RandomContentGenerator('[data-random-content="true"]', 10 /*repeat*/);
     post_random_generator.AssignRandomContent();
 
-    // create a new flashlight and give it a refrence to canvas and
-    // the radious of the flashlight circle
-    let flashlight = new Flashlight({
-        canvas: CANVAS,
-        container: CANVAS_CONTAINER,
-        radious: 300,
-        inner_light_color: "#FFFFFF",
+
+    let flashlight_menu = new Flashlight({
+        canvas: document.getElementById("menu-cnvs"),
+        container: document.getElementsByClassName("top-bar")[0],
+        radious:450,
+        inner_light_color: "white",
         outer_light_color: "black",
-        css: {
-            zIndex: "2"
+        css_container: {
+            position: "relative",
+            pointerEvents: "all"
+        },
+        css_canvas: {
+            pointeEvents: "none",
+            left: 0,
+            top: 0,
         }
     });
     
-    window.onmousemove = flashlight.DrawFlashlight.bind(flashlight);
+    window.onmousemove = event => {
+        flashlight_menu.DrawFlashlight(event);
+    };
 
     OPEN_LOGIN_BTN.onclick = () => toggleLoginForm(true);
     CANCEL_BTN.onclick = () => toggleLoginForm(false);
