@@ -7,9 +7,12 @@
     "example": "example"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup --config"
   },
   "author": "Ashkan Mohammadi",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "rollup": "^2.50.5"
+  }
 }

@@ -1,13 +1,15 @@
-class Flashlight
+export class Flashlight
 {
     /**
-     * 
+     * create a new Flashlight object
      * @param {Object} config configuration for the flashlight
      * @param {HTMLCanvasElement} config.canvas the canvas on which the effect is applied
      * @param {Number} config.radious radious of the flashlight
      * @param {Number} config.opacity opacity of the effect. ranges from 0 to 255
      * @param {String} config.inner_light_color color of inner circle of the flashlight
-     * @param {String} config.outer_light_color color of outer circle of the flashlight 
+     * @param {String} config.outer_light_color color of outer circle of the flashlight
+     * @param {Object} config.css_container css styles to be applied to the container element
+     * @param {Object} config.css_canvas css styles to be applied to the canvas
      */
     constructor({
         canvas,
@@ -20,18 +22,17 @@ class Flashlight
         css_canvas = {},
     } = config)
     {
+        const common_styles = {
+            pointerEvents: "none"
+        };
+
         let css_styles_container = {
-            position: "fixed",
-            top: "0",
-            right: "0",
-            left: "0",
-            bottom: "0",
-            pointerEvents: "none",
+            ...common_styles,
             ...css_container
         };
 
         let css_styles_canvas = {
-            pointerEvents: "none",
+            ...common_styles,
             ...css_canvas
         };
 

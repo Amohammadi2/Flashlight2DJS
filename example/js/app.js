@@ -21,7 +21,7 @@ function toggleLoginForm(on)
     post_random_generator.AssignRandomContent();
 
 
-    let flashlight_menu = new Flashlight({
+    let flashlight_menu = new flashlight.Flashlight({
         canvas: document.getElementById("menu-cnvs"),
         container: document.getElementsByClassName("top-bar")[0],
         radious:450,
@@ -32,14 +32,27 @@ function toggleLoginForm(on)
             pointerEvents: "all"
         },
         css_canvas: {
-            pointeEvents: "none",
+            pointerEvents: "none",
             left: 0,
             top: 0,
+        }
+    });
+
+    let flashlight_main = new flashlight.Flashlight({
+        canvas: CANVAS,
+        container: CANVAS_CONTAINER,
+        radious: 300,
+        inner_light_color: "white",
+        outer_light_color: "black",
+        css_container: {
+            position: "fixed",
+            top: "0", left: "0", right: "0", bottom: "0"
         }
     });
     
     window.onmousemove = event => {
         flashlight_menu.DrawFlashlight(event);
+        flashlight_main.DrawFlashlight(event);
     };
 
     OPEN_LOGIN_BTN.onclick = () => toggleLoginForm(true);
