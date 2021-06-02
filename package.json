@@ -13,6 +13,10 @@
   "author": "Ashkan Mohammadi",
   "license": "MIT",
   "dependencies": {
+    "esdoc": "^1.1.0",
+    "esdoc-standard-plugin": "^1.0.0",
+    "install": "^0.13.0",
+    "npm": "^7.15.1",
     "rollup": "^2.50.5"
   }
 }
